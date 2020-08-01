@@ -143,26 +143,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="component.cpp" />
     <ClCompile Include="draw.cpp" />
+    <ClCompile Include="entity.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="input.cpp" />
-    <ClCompile Include="object.cpp" />
     <ClCompile Include="scene.cpp" />
-    <ClCompile Include="spritesheet.cpp" />
     <ClCompile Include="luafuncs.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="system.cpp" />
     <ClCompile Include="text.cpp" />
     <ClCompile Include="sprite.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="component.h" />
     <ClInclude Include="draw.h" />
+    <ClInclude Include="entity.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="globals.h" />
     <ClInclude Include="input.h" />
     <ClInclude Include="luafuncs.h" />
-    <ClInclude Include="object.h" />
     <ClInclude Include="scene.h" />
-    <ClInclude Include="spritesheet.h" />
+    <ClInclude Include="system.h" />
     <ClInclude Include="text.h" />
     <ClInclude Include="sprite.h" />
   </ItemGroup>

@@ -2,9 +2,8 @@
 #define SCENE_H
 
 #include "globals.h"
-#include "sprite.h"
-#include "spritesheet.h"
 #include "input.h"
+#include "system.h"
 
 class KScene
 {
@@ -13,24 +12,22 @@ public:
 	KScene();
 	~KScene();
 
-	void addSprite(KSprite* sprite);
-	KSprite* getSprite(int spriteNum);
-
-	void addSpriteSheet(KSpriteSheet* spriteSheet);
-	KSpriteSheet* getSpriteSheet(int spriteSheetNum);
-
 	int getSceneChange();
 
 	virtual void load() = 0;
-	virtual void processInput(KInputHandler input, Uint32 dt) = 0;
 	virtual void update(Uint32 dt) = 0;
 	virtual void draw() = 0;
 
+	void addSystem(KSystem* system);
+	KSystem* getSystem(int systemID);
+
+	void addEntity(KEntity* entity);
+	KEntity* getEntity(int entityID);
+
 protected:
-	std::vector<KSprite*> sprites;
-	std::vector<KSpriteSheet*> spriteSheets;
-	KInputHandler input;
-	int changeScene;
+	std::vector<KSystem*> mSystems;
+	std::vector<KEntity*> mEntities;
+	int mChangeScene;
 };
 
 #endif

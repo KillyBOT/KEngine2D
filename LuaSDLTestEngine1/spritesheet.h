@@ -21,11 +21,11 @@ public:
     void renderSpriteNum(int x, int y, int spriteNum, SDL_Rect* dest = NULL, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE);
 
 private:
-    KSprite* sprite;
+    KSprite* mSprite;
     SDL_Rect spriteClips[SPRITESHEET_HORIZONTAL_MAX][SPRITESHEET_VERTICAL_MAX];
     //bool spriteInit[SPRITESHEET_HORIZONTAL_MAX][SPRITESHEET_VERTICAL_MAX];
 
-    int clipX, clipY;
+    int mClipX, mClipY;
 };
 
 #endif

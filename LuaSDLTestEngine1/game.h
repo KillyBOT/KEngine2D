@@ -27,9 +27,8 @@ public:
 	KScene* getCurrentScene();
 
 private:
-	std::vector<KScene *> scenes;
-	KScene* currentScene;
-	KInputHandler input;
+	std::vector<KScene *> mScenes;
+	KScene* mCurrentScene;
 
 	bool running;
 };

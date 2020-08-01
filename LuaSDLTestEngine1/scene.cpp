@@ -1,27 +1,43 @@
 #include "scene.h"
 
+using namespace std;
+
 KScene::KScene() {
-	changeScene = -1;
+	mChangeScene = -1;
 }
 KScene::~KScene() {
-	KSprite* spriteObj;
-	KSpriteSheet* spriteSheetObj;
 
-	for (std::vector<KSprite*>::iterator sprite = sprites.begin(); sprite != sprites.end(); ++sprite) {
-		spriteObj = (*sprite);
-		delete spriteObj;
+	int mSystemsSize = mSystems.size();
+
+	for (int n = 0; n < mSystemsSize; n++) {
+		delete mSystems.front();
+		mSystems.erase(mSystems.begin());
 	}
 
-	for (std::vector<KSpriteSheet*>::iterator spriteSheet = spriteSheets.begin(); spriteSheet != spriteSheets.end(); ++spriteSheet) {
-		spriteSheetObj = *spriteSheet;
-		delete spriteSheetObj;
+	int mEntitiesSize = mEntities.size();
+
+	for (int n = 0; n < mEntitiesSize; n++) {
+		delete mEntities.front();
+		mEntities.erase(mEntities.begin());
 	}
 }
 
-void KScene::addSprite(KSprite* sprite) { sprites.push_back(sprite); }
-KSprite* KScene::getSprite(int spriteNum) { if (spriteNum >= 0 && spriteNum < sprites.size()) return sprites[spriteNum]; }
+int KScene::getSceneChange() { return mChangeScene; }
 
-void KScene::addSpriteSheet(KSpriteSheet* spriteSheet) { spriteSheets.push_back(spriteSheet); }
-KSpriteSheet* KScene::getSpriteSheet(int spriteSheetNum) { if (spriteSheetNum >= 0 && spriteSheetNum < spriteSheets.size()) return spriteSheets[spriteSheetNum]; }
+void KScene::addSystem(KSystem* system) { mSystems.push_back(system); }
+KSystem* KScene::getSystem(int systemID) {
+	for (vector<KSystem*>::iterator it = mSystems.begin(); it != mSystems.end(); it++) {
+		if ((*it)->getID() == systemID) return (*it);
+	}
 
-int KScene::getSceneChange() { return changeScene; }
+	return NULL;
+}
+
+void KScene::addEntity(KEntity* entity) { mEntities.push_back(entity); }
+KEntity* KScene::getEntity(int entityID) {
+	for (vector<KEntity*>::iterator it = mEntities.begin(); it != mEntities.end(); it++) {
+		if ((*it)->getID() == entityID) return (*it);
+	}
+
+	return NULL;
+}

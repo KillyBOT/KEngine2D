@@ -52,13 +52,13 @@ public:
 	virtual int getFontSize() { return -1; }
 
 protected:
-	SDL_Texture* sprite;
-	void* pixels;
+	SDL_Texture* mSprite;
+	void* mPixels;
 	
-	int pitch;
-	int width;
-	int height;
-	SDL_Color color;
+	int mPitch;
+	int mWidth;
+	int mHeight;
+	SDL_Color mColor;
 private:
 	void printNotText();
 };

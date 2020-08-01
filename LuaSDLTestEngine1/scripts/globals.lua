@@ -1,0 +1,12 @@
+graphicsComponentID = 0
+textComponentID = 1
+physicsComponentID = 2
+transformComponentID = 3
+collideComponentID = 4
+gamelogicComponentID = 5
+inputComponentID = 6
+uiComponentID = 7
+audioComponentID = 8
+entityloaderComponentID = 9
+eventhandlerComponentID = 10
+animationComponentID = 11
